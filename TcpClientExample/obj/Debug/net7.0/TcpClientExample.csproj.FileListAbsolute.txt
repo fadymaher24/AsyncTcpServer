@@ -1,0 +1,14 @@
+D:\git\AsyncTcpServer\TcpClientExample\bin\Debug\net7.0\TcpClientExample.exe
+D:\git\AsyncTcpServer\TcpClientExample\bin\Debug\net7.0\TcpClientExample.deps.json
+D:\git\AsyncTcpServer\TcpClientExample\bin\Debug\net7.0\TcpClientExample.runtimeconfig.json
+D:\git\AsyncTcpServer\TcpClientExample\bin\Debug\net7.0\TcpClientExample.dll
+D:\git\AsyncTcpServer\TcpClientExample\bin\Debug\net7.0\TcpClientExample.pdb
+D:\git\AsyncTcpServer\TcpClientExample\obj\Debug\net7.0\TcpClientExample.GeneratedMSBuildEditorConfig.editorconfig
+D:\git\AsyncTcpServer\TcpClientExample\obj\Debug\net7.0\TcpClientExample.AssemblyInfoInputs.cache
+D:\git\AsyncTcpServer\TcpClientExample\obj\Debug\net7.0\TcpClientExample.AssemblyInfo.cs
+D:\git\AsyncTcpServer\TcpClientExample\obj\Debug\net7.0\TcpClientExample.csproj.CoreCompileInputs.cache
+D:\git\AsyncTcpServer\TcpClientExample\obj\Debug\net7.0\TcpClientExample.dll
+D:\git\AsyncTcpServer\TcpClientExample\obj\Debug\net7.0\refint\TcpClientExample.dll
+D:\git\AsyncTcpServer\TcpClientExample\obj\Debug\net7.0\TcpClientExample.pdb
+D:\git\AsyncTcpServer\TcpClientExample\obj\Debug\net7.0\TcpClientExample.genruntimeconfig.cache
+D:\git\AsyncTcpServer\TcpClientExample\obj\Debug\net7.0\ref\TcpClientExample.dll

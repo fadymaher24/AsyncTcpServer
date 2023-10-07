@@ -8,7 +8,7 @@ class Program
 {
     static async Task Main()
     {
-        IPAddress ipAddress = IPAddress.Parse("192.168.1.3");
+        IPAddress ipAddress = IPAddress.Parse("192.168.1.16");
         int port = 8000;
 
         TcpListener listener = new TcpListener(ipAddress, port);
@@ -66,6 +66,3 @@ class Program
         }
     }
 }
-
-
-

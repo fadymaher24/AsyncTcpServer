@@ -1,0 +1,14 @@
+D:\git\AsyncTcpServer\read_data\bin\Debug\net7.0\read_data.exe
+D:\git\AsyncTcpServer\read_data\bin\Debug\net7.0\read_data.deps.json
+D:\git\AsyncTcpServer\read_data\bin\Debug\net7.0\read_data.runtimeconfig.json
+D:\git\AsyncTcpServer\read_data\bin\Debug\net7.0\read_data.dll
+D:\git\AsyncTcpServer\read_data\bin\Debug\net7.0\read_data.pdb
+D:\git\AsyncTcpServer\read_data\obj\Debug\net7.0\read_data.GeneratedMSBuildEditorConfig.editorconfig
+D:\git\AsyncTcpServer\read_data\obj\Debug\net7.0\read_data.AssemblyInfoInputs.cache
+D:\git\AsyncTcpServer\read_data\obj\Debug\net7.0\read_data.AssemblyInfo.cs
+D:\git\AsyncTcpServer\read_data\obj\Debug\net7.0\read_data.csproj.CoreCompileInputs.cache
+D:\git\AsyncTcpServer\read_data\obj\Debug\net7.0\read_data.dll
+D:\git\AsyncTcpServer\read_data\obj\Debug\net7.0\refint\read_data.dll
+D:\git\AsyncTcpServer\read_data\obj\Debug\net7.0\read_data.pdb
+D:\git\AsyncTcpServer\read_data\obj\Debug\net7.0\read_data.genruntimeconfig.cache
+D:\git\AsyncTcpServer\read_data\obj\Debug\net7.0\ref\read_data.dll
