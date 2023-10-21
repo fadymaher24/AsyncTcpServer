@@ -8,9 +8,10 @@ class Program
 {
     static async Task Main()
     {
-        IPAddress ipAddress = IPAddress.Parse("192.168.1.16");
+        IPAddress ipAddress = IPAddress.Parse("192.168.1.22");
         int port = 8000;
 
+        // if th
         TcpListener listener = new TcpListener(ipAddress, port);
 
         try
@@ -36,33 +37,49 @@ class Program
         }
     }
 
-    static async Task HandleClientAsync(TcpClient client)
+static async Task HandleClientAsync(TcpClient client)
+{
+    try
     {
-        try
+        using (NetworkStream stream = client.GetStream())
         {
-            using (NetworkStream stream = client.GetStream())
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+
+            while (true)
             {
-                byte[] buffer = new byte[1024];
-                int bytesRead;
+                bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
+                if (bytesRead <= 0)
+                    break;
 
-                while (true)
+                Console.WriteLine("Received data:");
+
+                for (int i = 0; i < bytesRead; i += 16)
                 {
-                    bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
-                    if (bytesRead <= 0)
-                        break;
-
-                    string receivedData = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                    Console.WriteLine($"Received data: {receivedData}");
+                    Console.Write($"{i:X8}: ");
+                    for (int j = i; j < i + 16 && j < bytesRead; j++)
+                    {
+                        Console.Write($"{buffer[j]:X2} ");
+                    }
+                    Console.Write("  ");
+                    for (int j = i; j < i + 16 && j < bytesRead; j++)
+                    {
+                        char c = (char)buffer[j];
+                        Console.Write(char.IsControl(c) ? '.' : c);
+                    }
+                    Console.WriteLine();
                 }
             }
         }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"An error occurred: {ex.Message}");
-        }
-        finally
-        {
-            client.Close();
-        }
     }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"An error occurred: {ex.Message}");
+    }
+    finally
+    {
+        client.Close();
+    }
+}
+
 }
