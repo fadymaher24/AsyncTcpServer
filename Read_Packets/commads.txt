@@ -1,0 +1,38 @@
+// static async Task SendAckOKAsync(TcpClient client, int groupNumber)
+// {
+//     try
+//     {
+//         using (NetworkStream stream = client.GetStream())
+//         {
+//             // Create a byte array to represent your CMD_ACK_OK packet
+//             byte[] packetData = new byte[5];
+//             packetData[0] = (byte)CMD_ACK_OK; // Assuming CMD_ACK_OK is an integer constant
+//             BitConverter.GetBytes(groupNumber).CopyTo(packetData, 1);
+
+//             await stream.WriteAsync(packetData, 0, packetData.Length);
+//         }
+//     }
+//     catch (Exception ex)
+//     {
+//         Console.WriteLine($"An error occurred while sending CMD_ACK_OK packet: {ex.Message}");
+//     }
+// }
+// static async Task SendConnectCommandAsync(TcpClient client)
+// {
+//     try
+//     {
+//         using (NetworkStream stream = client.GetStream())
+//         {
+//             // Create a byte array to represent your CMD_CONNECT packet
+//             byte[] packetData = new byte[1];
+//             int CMD_CONNECT = 1000;
+//             packetData[0] = (byte)CMD_CONNECT; // Assuming CMD_CONNECT is an integer constant
+
+//             await stream.WriteAsync(packetData, 0, packetData.Length);
+//         }
+//     }
+//     catch (Exception ex)
+//     {
+//         Console.WriteLine($"An error occurred while sending CMD_CONNECT packet: {ex.Message}");
+//     }
+// }

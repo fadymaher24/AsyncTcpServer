@@ -1,0 +1,98 @@
+using System;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading.Tasks;
+
+class Program
+{
+    static async Task Main()
+    {
+        IPAddress ipAddress = IPAddress.Parse("192.168.1.3");
+        int port = 8000;
+
+        TcpListener listener = new TcpListener(ipAddress, port);
+
+        try
+        {
+            listener.Start();
+            Console.WriteLine($"Listening on {ipAddress}:{port}");
+
+            while (true)
+            {
+                TcpClient client = await listener.AcceptTcpClientAsync();
+                Console.WriteLine($"Accepted connection from {((IPEndPoint)client.Client.RemoteEndPoint).Address}:{((IPEndPoint)client.Client.RemoteEndPoint).Port}");
+
+                _ = HandleClientAsync(client);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
+        finally
+        {
+            listener.Stop();
+        }
+    }
+
+    static async Task HandleClientAsync(TcpClient client)
+    {
+        try
+        {
+            using (NetworkStream stream = client.GetStream())
+            {
+                byte[] buffer = new byte[1024];
+                int bytesRead;
+
+                while (true)
+                {
+                    bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
+                    if (bytesRead <= 0)
+                        break;
+
+                    string receivedData = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                    Console.WriteLine($"Received data: {receivedData}");
+
+                    // ex. fa0101e5e5e50100 | 1711 | 0000 | 089e | 00013001 | c0d709 | 0000000000 | 2545dd09 | 0000 | a0e9
+                    //split the data into variables and send to the database
+                    // skip the first 16 characters from receivedData
+                    receivedData = receivedData.Substring(16);
+                    // after 16 num put | to split the data
+                    string data = receivedData.Insert(4, "|");
+                    string[] data = receivedData
+                    
+                    string type = data[0]; // card or empty
+                    string AutoID = data[1]; // sequence number of the card
+                    string DoorNum = data[2]; //Door Number
+                    string CardNum = data[3]; //Card Number
+                    string Time = data[4]; //Time still
+                    string Status = data[5]; //Status still
+                    // convert the data from hexa to decimal
+                    type = Convert.ToInt32(type, 16).ToString();
+                    AutoID = Convert.ToInt32(AutoID, 16).ToString();
+                    DoorNum = Convert.ToInt32(DoorNum, 16).ToString();
+                    CardNum = Convert.ToInt32(CardNum, 16).ToString();
+                    Time = Convert.ToInt32(Time, 16).ToString();
+                    Status = Convert.ToInt32(Status, 16).ToString();
+
+                    //send to database
+                    //send to database
+                    
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
+        finally
+        {
+            client.Close();
+        }
+    }
+}
+
+
+
+
